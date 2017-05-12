@@ -31,7 +31,7 @@ def add(m,n):
 
 Picture of a pretty HondaJet:
 
-![HondaJet]({{ site.url }}/assets/hondajet.jpg)
+![HondaJet]({{ site.url }}/images/hondajet.jpg)
 
 Do tables work?
 
