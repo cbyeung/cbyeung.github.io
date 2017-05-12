@@ -46,7 +46,7 @@ Do tables work?
 <br><!--This is a forced line break; note that HTML tags easily integrate into markdown-->
 No, unfortunately not as is. Update: after adding a `.table` style to `_base.scss`. Note: in the command line, locate gems with `bundle show [gem_name]`.
 
-Some `MathJax`? Try this on for size: $$x^2$$. Or this
+Some `MathJax`? Try this on for size: $$x^2$$. Or this?
 
 \\[\sin{\theta} = \frac{e^{ix}-e^{-ix}}{2i}.\\]
 
