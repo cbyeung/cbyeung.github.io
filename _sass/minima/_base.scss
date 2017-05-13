@@ -43,7 +43,6 @@ ul, ol, dl, figure,
  * Images
  */
 img {
-  max-width: 100%;
   vertical-align: middle;
 }
 
@@ -83,6 +82,7 @@ li {
  */
 h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
+  font-family: $title-font-family;
 }
 
 
@@ -218,6 +218,8 @@ pre {
  * Tables
  */
 .table {
+  margin-left:auto;
+  margin-right:auto;
   padding: 0; }
   table tr {
     border-top: 1px solid #cccccc;
@@ -227,7 +229,7 @@ pre {
     table tr:nth-child(2n) {
       background-color: #f8f8f8; }
     table tr th {
-      font-weight: bold;
+      font-weight: semibold;
       border: 1px solid #cccccc;
       text-align: left;
       margin: 0;
@@ -241,3 +243,22 @@ pre {
       margin-top: 0; }
     table tr th :last-child, table tr td :last-child {
       margin-bottom: 0; }
+
+/**
+ * Text width images
+ */
+.text-width {
+  max-width: 100%;
+      }
+
+/**
+ * Full width images
+ */
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}

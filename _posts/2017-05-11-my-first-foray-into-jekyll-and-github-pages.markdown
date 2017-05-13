@@ -31,7 +31,7 @@ def add(m,n):
 
 Picture of a pretty HondaJet:
 
-![HondaJet]({{ site.url }}/images/hondajet.jpg)
+![HondaJet]({{ site.url }}/images/hondajet.jpg){:.full-width}
 
 Do tables work?
 
@@ -44,7 +44,7 @@ Do tables work?
 | 4 | 16 | maybe |
 {:.table}
 <br><!--This is a forced line break; note that HTML tags easily integrate into markdown-->
-No, unfortunately not as is. Update: after adding a `.table` style to `_base.scss`. Note: in the command line, locate gems with `bundle show [gem_name]`.
+No, unfortunately not as is. Update: after adding a `.table` style to `_base.scss`, it now works perfectly. Note: in the command line, locate gems with `bundle show [gem_name]`.
 
 Some `MathJax`? Try this on for size: $$x^2$$. Or this?
 
