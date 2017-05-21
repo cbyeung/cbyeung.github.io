@@ -7,7 +7,7 @@ tags: ultrasound confocal clot 3dprint fiji
 ---
 This is a detailed recipe containing the techniques I first trialled in the summer of 2017 to fabricate blood clots *in vitro*, from pure fibrinogen rather than human plasma, and later refined in the summer of 2018. Alternatives may exist for many of the reagents and tools listed below; the ones I mentioned are the only ones I tested.
 
-### Preparing fibrin clots and mounting on microscope slides
+## Preparing fibrin clots and mounting on microscope slides
 *Based extensively on the recipe originally provided by Irina Chernysh in the Department of Cell and Developmental Biology at the University of Pennsylvania.*
 
 Buy fibrinogen from Hyphen Biomed, catalogue number PP002K or PP002B fibrinogen 5 mg/mL. Mix with 37&deg;C distilled water as per instructions on the provided data sheet; keep at 37°C in an incubator.  Agitate the solution by drawing it up and down in a micropipette. Do not vortex-mix: fibrinogen is sensitive to turbulence. Complete dissolution could take several hours with occasional mixing.  Once prepared, 30&mu;L aliquots of fibrinogen can be frozen in -20&deg;C freezer until desired day of use.
@@ -48,7 +48,7 @@ Choose `Alexa 488-flybackground` (494-525nm) as the PMT preset. Set Argon laser 
 
 Alternatively, to obtain more z-resolution---which may be desirable due to difficulties associated with interpolation---reduce the z-step size to 0.04 microns. Reduce the depth range from 50 microns to 10 microns; otherwise imaging takes too long.
 
-### Exporting to STL, repairing, 3D printing
+## Exporting to STL, repairing, 3D printing
 *N.B. I used `Fiji` (is just ImageJ) on a computer with 8GB of RAM. Your mileage may vary; more memory enables a larger volume of fibrin to be processed.*
 
 Open Leica’s `.lif` file in `Fiji`. Set `color mode` to `Grayscale` and check `Autoscale`. Whether to crop the stack depends on the memory constraints of the computer. If cropping is necessary, close and reopen the `.lif` file and select `crop on import` under `memory management`. Enter appropriate values in pixels for the width and height.
@@ -71,7 +71,7 @@ Visit <https://cloud.netfabb.com>. Upload the `.stl` file to be automatically co
 
 Print the mesh. Dissolve support material. Complete dissolution may take several days, longer for denser clots. The precise steps will depend on the 3D printer used.
 
-### Analysis
+## Analysis
 `Fiji` includes the function `Analyze`&rarr;`Analyze particles`. After making slices binary, by ensuring that pores are dark and fibrils are bright, we can trick `Analyze particles` into thinking the pores are the particles. Fiji then counts the number of black pixels in each pore, and subsequently converts them to areas in units of micron<sup>2</sup>.
 
 Results can be exported as an Excel file and analysed further, such as creating histograms and calculating mean pore sizes.
