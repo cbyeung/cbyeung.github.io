@@ -1,0 +1,602 @@
+!input for complex fibrin problem, 0.1un/mL
+!chung yuen brandon yeung, 31 oct 2016.
+!title
+/title, beam analysis using beam4 3d elastic beam element
+!input type of elements.
+/prep7  !invokes preprocessor
+et,1,beam4  !keyopt(6)=0
+!mat,1 !defines material number
+!mp, lab, mat, c0, c1, c2, c3, c4
+mp,ex,1,5e6  !modulus of elasticity of fibrin = range between 1 and 10 mpa. Pick midpoint 5MPa
+mp,prxy,1,0.4999999 !poissons ratio of fibrin = range between 0.5 and 1.3. Start with close to 0.5
+!section properties: ansys calls them real constants
+!real constants for beam4 : area,izz,iyy,tkz,tky,theta,istrn,ixx,shearz,sheary,spin,addmas
+!r, nset, r1, r2, r3, r4, r5, r6
+r,1,1.0459e-12,8.705e-26,8.705e-26,5.77e-7,5.77e-7,0 ! 6 values on first line
+rmore, 0,1.7411e-25,,,, ! rmore for additional values
+!input node locations
+!n, node, x, y, z, thxy, thyz, thzx
+
+! BEGIN FIBRIL 1
+n,1,-4.038e-6,4.038e-6,47.45e-6
+n,2,-7.067e-6,6.058e-6,47.45e-6
+n,3,-9.086e-6,12.115e-6,47.45e-6
+n,4,-10.096e-6,13.125e-6,47.45e-6
+n,5,-13.125e-6,20.19e-6,47.45e-6
+! END FIBRIL 1
+! BEGIN FIBRIL 2
+n,6,-2.019e-6,8.077e-6,47.45e-6
+n,7,0,9.086e-6,47.45e-6
+! END FIBRIL 2
+! BEGIN FIBRIL 3
+n,8,-12.115e-6,9.086e-6,50.4e-6
+n,9,-13.125e-6,10.096e-6,50.40e-6
+! END FIBRIL 3
+! BEGIN FIBRIL 4
+n,10,-6.058e-6,13.125e-6,50.40e-6
+! END FIBRIL 4
+! BEGIN FIBRIL 5
+n,11,-5.048e-6,17.163e-6,50.40e-6
+n,12,0,16.153e-6,50.40e-6
+! END FIBRIL 5
+! BEGIN FIBRIL 6
+n,13,-3.029e-6,22.21e-6,48.46e-6
+n,14,0,21.20e-6,48.46e-6
+! END FIBRIL 6
+! BEGIN FIBRIL 7
+! END FIBRIL 7
+! BEGIN FIBRIL 8
+n,15,-6.058e-6,27.26e-6,48.46e-6
+n,16,0,32.31e-6,48.46e-6
+! END FIBRIL 8
+! BEGIN FIBRIL 9
+! END FIBRIL 9
+! BEGIN FIBRIL 10
+n,17,-9.086e-6,29.28e-6,48.46e-6
+n,18,-18.173e-6,36.345e-6,48.46e-6
+n,19,-29.28e-6,42.40e-6,47.45e-6
+n,20,-33.32e-6,48.46e-6,43.41e-6
+! END FIBRIL 10
+! BEGIN FIBRIL 11
+n,21,-19.182e-6,30.29e-6,48.40e-6
+n,22,-27.26e-6,27.26e-6,46.44e-6
+! END FIBRIL 11
+! BEGIN FIBRIL 12
+n,23,-4.038e-6,4.038e-6,42.40e-6
+n,24,-8.077e-6,9.086e-6,38.36e-6
+n,25,0,18.173e-6,36.35e-6
+n,26,0,21.20e-6,48.46e-6
+! END FIBRIL 12
+! BEGIN FIBRIL 13
+n,27,0,29.28e-6,35.34e-6
+n,28,-5.048e-6,40.38e-6,39.37e-6
+n,29,0,48.46e-6,41.39e-6
+n,30,-2.019e-6,48.46e-6,40.38e-6
+n,31,-16.153e-6,48.46e-6,50.48e-6
+! END FIBRIL 13
+! BEGIN FIBRIL 14
+n,32,-6.058e-6,40.38e-6,42.40e-6
+n,33,-12.115e-6,41.39e-6,40.38e-6
+! END FIBRIL 14
+! BEGIN FIBRIN 15
+n,34,-2.019e-6,48.46e-6,40.38e-6
+! END FIBRIN 15
+! BEGIN FIBRIN 16
+n,35,-22.21e-6,24.23e-6,46.44e-6
+n,36,-17.163e-6,18.173e-6,44.42e-6
+n,37,-17.100e-6,11.105e-6,40.38e-6
+n,38,-17.163e-6,6.058e-6,38.36e-6
+n,39,-23.22e-6,3.029e-6,34.33e-6
+n,40,-36.35e-6,4.038e-6,38.36e-6
+n,41,-40.38e-6,8.077e-6,46.44e-6
+n,42,-46.44e-6,8.077e-6,37.35e-6
+n,43,-48.46e-6,18.173e-6,29.28e-6
+n,44,-46.44e-6,30.29e-6,41.39e-6
+n,45,-36.35e-6,33.32e-6,36.35e-6
+n,46,-27.26e-6,31.30e-6,36.40e-6
+n,47,-26.25e-6,22.21e-6,36.35e-6
+n,48,-24.23e-6,20.19e-6,36.35e-6
+n,49,-18.173e-6,13.125e-6,36.35e-6
+! END FIBRIN 16
+! BEGIN FIBRIL 17
+n,50,-9.086e-6,0,46.44e-6
+! END FIBRIL 17
+! BEGIN FIBRIL 18
+! END FIBRIL 18
+! BEGIN FIBRIL 18
+! END FIBRIL 18
+! BEGIN FIBRIL 19
+! END FIBRIL 19
+! BEGIN FIBRIL 20
+n,51,-14.134e-6,3.029e-6,29.28e-6
+n,52,8.077e-6,0,28.27e-6
+n,53,0,3.029e-6,27.26e-6
+! END FIBRIL 20
+! BEGIN FIBRIL 21
+n,54,-48.46e-6,48.46e-6,45.43e-6
+! END FIBIRL 21
+! BEGIN FIBIRL 22
+! END FIBRIL 22
+! BEGIN FIBRIL 23
+! END FIBRIL 23
+! BEZGIN FIBRIL 24
+! EZND FIBRIL 24
+! BEGIN FIBRIL 25
+n,55,-26.25e-6,13.125e-6,33.32e-6
+! END FIBRIL 25
+! BEGIN FIBRIL 26
+n,56,-34.33e-6,2.019e-6,27.26e-6
+n,57,-36.35e-6,0,30.29e-6
+n,58,-39.37e-6,3.029e-6,24.23e-6
+n,59,-35.34e-6,1.0096e-6,16.153e-6
+n,60,-44.42e-6,6.058e-6,6.058e-6
+! END FIBRIL 26
+! BEGIN FIBRIL 27
+n,61,-17.163e-6,0,12.115e-6
+n,62,-6.058e-6,2.019e-6,11.105e-6
+n,63,-1.0096e-6,9.086e-6,23.22e-6
+! END FIBRIL 27
+! BEZGIN FIBRIL 28
+n,64,0,14.134e-6,22.21e-6
+n,65,0,21.20e-6,23.22e-6
+! END FIBRILL 28
+! BEGIN FIBILR 29
+n,66,0,32.31e-6,21.20e-6
+n,67,0,41.39e-6,27.26e-6
+! END FIBRIL 29
+! BEGIN FIBRIL 30
+n,68,-5.048e-6,26.25e-6,9.086e-6
+n,69,-7.067e-6,27.26e-6,3.029e-6
+! END FIBRIL 30
+! BEGIN FIBRIL 31
+n,70,-4.038e-6,35.34e-6,6.058e-6
+n,71,-9.086e-6,44.42e-6,9.086e-6
+! END FIBRIL 31
+! BEGIN FIBRIL 32
+n,72,-1.0096e-6,46.44e-6,20.19e-6
+! END FIBRIL 32
+! BEGIN FIBRIL 33
+n,73,-18.173e-6,47.45e-6,27.26e-6
+n,74,-28.27e-6,48.40e-6,14.134e-6
+n,75,-36.35e-6,48.46e-6,19.182e-6
+n,76,-48.46e-6,18.173e-6,29.28e-6
+! END FIBRIL 33
+! BEGIN FIBRIL 34
+! END FIBRIL 34
+! BEGIN FIBRIL 35
+n,77,-45.43e-6,39.37e-6,11.105e-6
+n,78,-48.46e-6,48.46e-6,0
+! END FIBRIL 35
+! BEGIN FIBRIL 36
+n,79,-22.21e-6,37.35e-6,34.33e-6
+! END FIBRIL 36
+! BEGIN FIBRIL 37
+! END FIBRIL 37
+! BEGIN FIBRIL 38
+n,80,-16.153e-6,34.33e-6,26.25e-6
+! END FIBRIL 38
+! BEGIN FIBRIL 39
+! END FIBRIL 39
+! BEGIN FIBRIL 40
+! END FIBRIL 40
+! BEGIN FIBRIL 41
+n,81,-33.32e-6,19.182e-6,21.20e-6
+! END FIBRIL 41
+! BEGIN FIBRIL 42
+! END FIBRIL 42
+! BEGIN FIBRIL 43
+n,82,-25.24e-6,0,23.22e-6
+! END FIBRIL 43
+! BEGIN FIBRIL 44
+! END FIBRIL 44
+! BEGIN FIBRIL 45
+! END FIBRIL 45
+! BEGIN FIBRIL 46
+! END FIBRIL 46
+! BEGIN FIBRIL 47
+n,83,-29.28e-6,41.39e-6,18.173e-6
+n,84,-30.29e-6,37.35e-6,19.182e-6
+n,85,-29.28e-6,35.34e-6,21.20e-6
+! END FIBRIL 47
+! BEGIN FIBRIL 48
+n,86,-29.28e-6,41.39e-6,8.173e-6
+! END FIBRIL 48
+! BEGIN FIBRIL 49
+! END FIBRIL 49
+! BEGIN FIBRIL 50
+! END FIBRIL 50
+! BEGIN FIBRIL 51
+n,87,-21.20e-6,7.067e-6,13.125e-6
+n,88,0,0,0
+! END FIBRIL 51
+! BEGIN FIBRIL 52
+! END FIBRIL 52
+! BEGIN FIBRIL 53
+n,89,-15.144e-6,19.182e-6,14.134e-6
+! END FIBRIL 53
+! BEGIN FIBRIL 54
+! END FIBRIL 54
+! BEGIN FIBRIL 55
+n,90,-18.173e-6,21.20e-6,1.0096e-6
+n,91,-29.28e-6,9.086e-6,3.029e-6
+! END FIBRIL 55
+! BEGIN FIBRIL 56
+! END FIBRIL 56
+! BEGIN FIBRIL 57
+n,92,-18.173e-6,34.33e-6,2.524e-6
+n,93,-27.26e-6,31.30e-6,2.019e-6
+n,94,-23.22e-6,28.27e-6,1.5144e-6
+! END FIBRIL 57
+! BEGIN FIBRIL 58
+! END FIBRIL 58
+! BEGIN FIBRIL 59
+! END FIBRIL 59
+! BEGIN FIBRIL 60
+n,95,-20.19e-6,30.29e-6,1.0096e-6
+n,96,-35.34e-6,21.20e-6,8.077e-6
+! END FIBRIL 60
+! BEGIN FIBRIL 61
+! END FIBRIL 61
+! BEGIN FIBRIL 62
+! END FIBRIL 62
+! BEGIN FIBRIL 63
+n,97,-42.40e-6,30.29e-6,2.019e-6
+! END FIBRIL 63
+! BEGIN FIBRIL 64
+n,98,-37.35e-6,14.134e-6,2.019e-6
+n,99,-43.41e-6,22.21e-6,2.019e-6
+! END FIBRIL 64
+! BEGIN FIBRIL 65
+n,100,-40.38e-6,34.33e-6,2.019e-6
+! END FIBRIL 65
+! BEGIN FIBRIL 66
+! END FIBRIL 66
+! BEGIN FIBRIL 67
+n,101,-40.38e-6,47.45e-6,3.029e-6
+! END FIBRIL 67
+! BEGIN FIBRIL 68
+n,102,-17.163e-6,43.41e-6,4.038e-6
+n,103,-20.19e-6,48.46e-6,4.038e-6
+! END FIBRIL 68
+! BEGIN FIBRIL 69
+! END FIBRIL 69
+
+! fibrils complete
+
+
+
+
+
+
+
+
+!element generation
+type,1$ mat,1$ real,1   !input for element attributes(etyp,mat,real)
+! element connection. No need specify third node since Theta already specified
+! BEGIN FIBRIL 1
+en,1,1,2
+en,2,2,3
+en,3,3,4
+en,4,4,5
+! END FIBRIL 1
+! BEGIN FIBRIL 2
+en,5,2,6
+en,6,6,7
+! END FIBRIL 2
+! BEGIN FIBRIL 3
+en,7,2,8
+en,8,8,9
+! END FIBRIL 3
+! BEGIN FIBRIL 4
+en,9,3,10
+! END FIBRIL 4
+! BEGIN FIBRIL 5
+en,10,4,11
+en,11,11,12
+! END FIBRIL 5
+! BEGIN FIBRIL 6
+en,12,5,13
+en,13,13,14
+! BEGIN FIBRIL 6
+! BEGIN FIBRIL 7
+en,14,11,13
+! END FIBRIL 7
+! BEGIN FIBRIL 8
+en,15,11,15
+en,16,15,16
+! END FIBRIL 8
+! BEGIN FIBRIL 9
+en,17,15,5
+! END FIBRIL 9
+! BEGIN FIBRIL 10
+en,18,15,17
+en,19,17,18
+en,20,18,19
+en,21,19,20
+! END FIBRIL 10
+! BEGIN FIBRIL 11
+en,22,18,21
+en,23,21,22
+! END FIBRIL 11
+! BEGIN FIBRIL 12
+en,24,1,23
+en,25,23,24
+en,26,24,25
+en,27,25,26
+! END FIBRIL 12
+! BEGIN FIBRIL 13
+en,28,25,27
+en,29,27,28
+en,30,28,29
+en,31,29,30
+en,32,30,31
+en,33,31,18
+! END FIBRIL 13
+! BEGIN FIBRIL 14
+en,34,28,32
+en,35,32,33
+en,36,33,18
+! END FIBRIl 14
+! BEGIN FIBRIL 15
+en,37,32,34
+! END FIBRIL 15
+! BEGIN FIBRIL 16
+en,38,22,35
+en,39,35,36
+en,40,36,37
+en,41,37,38
+en,42,38,39
+en,43,39,40
+en,44,40,41
+en,45,41,42
+en,46,42,43
+en,47,43,44
+en,48,44,45
+en,49,45,46
+en,50,46,47
+en,51,47,48
+en,52,48,49
+en,53,49,37
+! END FIBRIL 16
+! BEGIN FIBRIL 17
+en,54,5,36
+! END FIBRIL 17
+! BEGIN FIBRIL 18
+en,55,37,5
+! END FIBRIL 18
+! BEGIN FIBRIL 19
+en,56,38,50
+en,57,50,1
+! END FIBRIL 19
+! BEGIN FIBRIL 20
+en,58,39,51
+en,59,51,52
+en,60,52,53
+en,61,53,24
+! END FIBRIL 20
+! BEGIN FIBRIL 21
+en,62,44,54
+! END FIBRIL 21
+! BEGIN FIBRIL 22
+en,63,46,19
+! END FIBRIL 22
+! BEGIN FIBRIL 23
+en,64,45,47
+! END FIBRIL 23
+! BEGIN FIBRIL 24
+en,65,47,22
+! END FIBRIL 24
+! BEGIN FIBRIL 25
+en,66,48,55
+en,67,55,39
+! END FIBRIL 25
+! BEGIN FIBRIL 26
+en,68,55,56
+en,69,56,40
+en,70,40,57
+en,71,57,58
+en,72,58,59
+en,73,59,60
+! END FIBRIL 26
+! BEGIN FIBRIL 27
+en,74,59,61
+en,75,61,62
+en,76,62,63
+en,77,63,25
+! END FIBRIL 27
+! BEGIN FIBRIL 28
+en,78,64,65
+en,79,65,27
+! END FIBRIL 28
+! NEGIN FIBRIL 29
+en,80,65,66
+en,81,66,67
+en,82,67,28
+! END FIBIRL 29
+! BEGIN FIBRIL 30
+en,83,66,68
+en,84,68,69
+! END FIBRIL 30
+! BEGIN FIBRIL 31
+en,85,68,70
+en,86,70,71
+! END FIBRIL 31
+! BEGIN FIBRIL 32
+en,87,70,72
+en,88,72,67
+! END FIBRIL 32
+! BEGIN FIBRIL 33
+en,89,67,73
+en,90,73,74
+en,91,74,75
+en,92,75,76
+! END FIBRIL 33
+! BEGIN FIBRIL 34
+en,93,71,74
+! END FIBRIL 34
+! BEGIN FIBRIL 35
+en,94,75,77
+en,95,77,78
+! END FIBRIL 35
+! BEGIN FIBRIL 36
+en,96,73,79
+en,97,79,22
+! END FIBRIL 36
+! BEGIN FIBRIL 37
+en,98,47,65
+! END FIBRIL 37
+! BEGIN FIVRIL 38
+en,99,47,80
+en,100,80,65
+! END FIBRIL 38
+! BEGIN FIBRIL 39
+en,101,80,67
+! END FIBRIL 39
+! BEGIN FIBRIL 40
+en,102,67,79
+! END FIBRIL 40
+! BEGIN FIBRIL 41
+en,103,43,81
+! END FIBRIL 41
+! BEGIN FIBRIL 42
+en,104,58,81
+en,105,81,47
+! END FIBRIL 42
+! BEGIN FIBRIL 43
+en,106,46,81
+en,107,81,82
+en,108,82,39
+! END FIVBRIL 43
+! BEGIN FIBRIL 44
+en,109,44,81
+! END FIBRIL 44
+! BEGIN FIBRIL 45
+en,110,81,40
+! END FIBRIL 45
+! BEGIN FIBRIL 46
+en,111,79,44
+! END FIBRIL 46
+! BEGIN FIBRIL 47
+en,112,74,83
+en,113,83,84
+en,114,84,85
+en,115,85,79
+! END FIBRIL 47
+! BEGIN FIBRIL 48
+en,116,86,43
+! END FIBRIL 48
+! BEGIN FIBRIL 49
+en,117,84,43
+! END FIBRIL 49
+! BEGIN FIBRIL 50
+en,118,85,43
+! END FIBRIL 50
+! BEGIN FIBRIL 51
+en,119,81,87
+en,120,87,88
+! END FIBRIL 51
+! BEGIN FIBRIL 52
+en,121,87,63
+! END FIBRIL 52
+! BEGIN FIBRIIL 53
+en,122,87,89
+en,123,89,68
+! END FIBRIL 53
+! BEGIN FIBRIL 54
+en,124,88,69
+en,125,69,71
+! END FIBRIL 54
+! BEGIN FIBRIL 55
+en,126,69,90
+en,127,90,91
+en,128,91,60
+! END FIBRIL 55
+! BEGIN FIBRIL 56
+en,129,69,91
+! END FIBRIL 56
+! BEGIN FIBRIL 57
+en,130,71,92
+en,131,92,93
+en,132,93,94
+en,133,94,90
+! END FIBRIL 57
+! BEGIN FIBRIL 58
+en,134,92,69
+! END FIBRIL 58
+! BEGIN FIBRIL 59
+en,135,92,90
+! END FIBRIL 59
+! BEGIN FIBRIL 60
+en,136,92,95
+en,137,95,93
+en,138,93,96
+! END FIBRIL 60
+! BEGIN FIBRIL 61
+en,139,96,91
+! END FIBRIL 61
+! BEGIN FIBRIL 62
+en,140,96,60
+! END FIBRIL 62
+! BEGIN FIBRIL 63
+en,141,96,97
+! END FIBRIL 63
+! BEGIN FIBRIL 64
+en,142,91,98
+en,143,98,99
+en,144,99,97
+! END FIBRIL 64
+! BEGIN FIBRIL 65
+en,145,93,100
+en,146,100,97
+en,147,97,77
+! END FIBRIL 65
+! BEGIN FIBRIL 66
+en,148,97,78
+! END FIBRIL 66
+! BEGIN FIBRIL 67
+en,149,97,101
+en,150,101,75
+! END FIBRIL 67
+! BEGIN FIBRIL 68
+en,151,71,102
+en,152,102,103
+en,153,103,71
+! END FIBRIL 68
+! BEGIN FIBRIL 69
+en,154,102,96
+! END FIBRIL 69
+
+! fibrils complete
+
+! Note that in the ANSYS display window, the visual nodal displacements do not use the same scale as the lengths
+! of the elements. My actual nodal displacements are very large because my load is very large, even though the
+! deflections don't look large visually for that reason. Next step would be to apply fixed supports to one plane,
+! then apply tensile load on the nodes of the opposite plane to find out the Young's modulus and Poisson's ratio
+! of the aggregate clot sample (as opposed to individual ropes). Do this for each spatial direction X Y Z. Don't
+! worry about Poisson's ratio greater than 0.5 because there is ample room between adjacent fibrils so the extra
+! volume expansion of fibrils should not impact adjacent fibrils, and ANSYS linear material model (which is used
+! here) does not allow for Poisson's ratios greater than 0.5. It is also unclear how the authors of the paper who
+! measured these Poisson's ratios defined Poisson's ratio. Pending Carr's approval, this should be the remaining
+! work of my E59 project.
+
+!input load boundary conditions
+!f, node, lab, value, value2, nend, ninc                                                 used for concentrated loads
+!sfbeam, elem, lkey, lab, vali, valj, val2i, val2j, ioffst, joffst, lenrat               used for distributed loads
+! if value j is left blank it will default to value i
+f,54,fy,-5e-3 ! axial concentrated load at node 1; rotation exceeds ANSYS limit if load exceeds 5e-3
+!sfbeam,2,1,pres,10e3
+! input deformation boundary condition  (these are the 'things at the end')
+! d, node, lab, value, value2, nend, ninc, lab2, lab3, lab4, lab5, lab6
+d,1,all,0                 !roller at left support
+
+!d,103,ux,0 $d,103,uy,0 $d,103,uz,0 !pinned at right support
+d,103,all,0
+
+finish
+/solu
+antype,static !select static load solution
+solve
+save
+finish
+
+/post1
