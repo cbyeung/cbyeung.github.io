@@ -8,32 +8,32 @@ tags: ultrasound confocal clot 3dprint fiji ANSYS youngsModulus simulation
 In the same spirit as my [last post]({{ site.baseurl }}{% link _posts/2017-05-19-fabricating-and-3d-printing-fibrin-clots-to-understand-sonothrombolysis.md %}), which is an almost verbatim transcript of a poster I presented at Swarthmore College, this post is a reproduction of the final report I wrote for a solid mechanics course, originally titled "E59 Project: Simulating deformation of fibrin clot using ANSYS."
 
 ## Abstract
-A 3D printed scale model of a blood clot was mapped. Nodal coordinates, along with empirically determined material properties, were entered into ANSYS (Release 17.2). The model was simulated using ANSYS `Beam4` elements, and solved for nodal displacements in the x, y and z-directions. These displacements were subsequently used to calculate stress and strain and the bulk Young’s moduli of the clot: E<sub>x</sub>, E<sub>y</sub> and E<sub>z</sub>. Results are summarised in table 1.
+A 3D printed scale model of a blood clot was mapped. Nodal coordinates, along with empirically determined material properties, were entered into ANSYS (Release 17.2). The model was simulated using ANSYS `Beam4` elements, and solved for nodal displacements in the x, y and z-directions. These displacements were subsequently used to calculate stress and strain and the bulk Young’s moduli of the clot: *E<sub>x</sub>*, *E<sub>y</sub>* and *E<sub>z</sub>*. Results are summarised in table 1.
 
-E<sub>x</sub> (Pa) | E<sub>y</sub> (Pa) | E<sub>z</sub> (Pa)
+*E<sub>x</sub>* (Pa) | *E<sub>y</sub>* (Pa) | *E<sub>z</sub>* (Pa)
 --- | --- | ---
 113.5 | 109.1 | 16.17
 {:.table}
 <center>Table 1: Young's moduli.</center>
 <br>
-All three moduli fell within the range 0.1--1500 MPa obtained from past literature. E<sub>x</sub> and E<sub>y</sub> matched each other closely, with a percentage difference of 4%, supporting the assumption of isotropy in a fibrin clot. E<sub>z</sub> deviated from E<sub>x</sub> and E<sub>y</sub> by close to 90%. This discrepancy could most likely be attributed to the small sample size, the injection of the clot into a microscope slide chamber during its preparation, and limitations of optical scanning under a confocal microscope. Overall, results showed that 3D printing a scale model and simulating the deformation of a fibrin clot in ANSYS is a viable method for modelling clot mechanical behaviour, although to extend this procedure to more complex clots, automation of some steps would be essential.
+All three moduli fell within the range 0.1--1500 MPa obtained from past literature. *E<sub>x</sub>* and *E<sub>y</sub>* matched each other closely, with a percentage difference of 4%, supporting the assumption of isotropy in a fibrin clot. *E<sub>z</sub>* deviated from *E<sub>x</sub>* and *E<sub>y</sub>* by close to 90%. This discrepancy could most likely be attributed to the small sample size, the injection of the clot into a microscope slide chamber during its preparation, and limitations of optical scanning under a confocal microscope. Overall, results showed that 3D printing a scale model and simulating the deformation of a fibrin clot in ANSYS is a viable method for modelling clot mechanical behaviour, although to extend this procedure to more complex clots, automation of some steps would be essential.
 
 ## Introduction
-Blood clots—--made predominantly of a material called fibrin—--that form within a patient’s blood vessels can lead to adverse conditions such as ischaemic stroke and myocardial infarction. Traditionally treatment for such blood clots—--called thrombi—--involves administering a clot-dissolving chemical agent to the patient; the drug travels in the bloodstream and affects the body systemically. This could be fatal, if the patient has other benign blood clots that also become dissolved by the drug.
+Blood clots---made predominantly of a material called fibrin---that form within a patient’s blood vessels can lead to adverse conditions such as ischaemic stroke and myocardial infarction. Traditionally treatment for such blood clots---called thrombi---involves administering a clot-dissolving chemical agent to the patient; the drug travels in the bloodstream and affects the body systemically. This could be fatal, if the patient has other benign blood clots that also become dissolved by the drug.
 
-Sonothrombolysis—--the dissolution of blood clots using a combination of ultrasound and violently cavitating microbubbles—--aims to circumvent this issue by breaking down blood clots through mechanical force. To understand more fully the interactions between mechanical force and networks of fibrin, I fabricated in the summer of 2016 a blood clot from 1.5 mg/mL purified fibrinogen, 4% Alexa Fluor 488 fluorescent dye, 3 mM CaCl<sub>2</sub> and 0.1 unit/mL thrombin, then imaged it under a confocal microscope and reconstructed its structure in 3D for visualisation on a computer, as shown in figure 1. As purified fibrinogen rather than blood plasma was used, the clot was made up exclusively of fibrin, free from blood cells, platelets or other components normally present in human blood.
+Sonothrombolysis---the dissolution of blood clots using a combination of ultrasound and violently cavitating microbubbles---aims to circumvent this issue by breaking down blood clots through mechanical force. To understand more fully the interactions between mechanical force and networks of fibrin, I fabricated in the summer of 2016 a blood clot from 1.5 mg/mL purified fibrinogen, 4% Alexa Fluor 488 fluorescent dye, 3 mM CaCl<sub>2</sub> and 0.1 unit/mL thrombin, then imaged it under a confocal microscope and reconstructed its structure in 3D for visualisation on a computer, as shown in figure 1. As purified fibrinogen rather than blood plasma was used, the clot was made up exclusively of fibrin, free from blood cells, platelets or other components normally present in human blood.
 
 ![Model]({{ site.url }}/images/confocal/Series019TenthUN.png){:.text-width}
 <center>Figure 1: 3D visualisation of the fibrin clot modelled.</center>
 <br>
-The goal of this project was to model the deformation of this clot under load, using ANSYS [1]. One of the most important characteristics of a material is its Young’s modulus E. Although the Young’s modulus and Poisson’s ratio &nu; of an individual fibrin fibril must be found empirically, once their values were obtained from past literature, I used ANSYS to simulate the clot under axial loading in order to find its bulk Young’s modulus (as distinguished from the Young’s modulus of an individual fibril) in each of the three spatial dimensions, i.e. E<sub>x</sub>, E<sub>y</sub> and E<sub>z</sub>. Empirical measurements for the modulus of an aggregate clot also exist [2], placing placing its value between 1 and 15,000 dyne/cm<sup>2</sup>, or between 0.1 and 1,500 Pa, so a comparison was made between the simulated Young’s moduli and the empirical measurements. Although the Poisson’s ratio of the aggregate clot is also important, no empirical value was available for comparison, so I did not attempt to find it from simulation.
+The goal of this project was to model the deformation of this clot under load, using ANSYS [1]. One of the most important characteristics of a material is its Young’s modulus *E*. Although the Young’s modulus and Poisson’s ratio &nu; of an individual fibrin fibril must be found empirically, once their values were obtained from past literature, I used ANSYS to simulate the clot under axial loading in order to find its bulk Young’s modulus (as distinguished from the Young’s modulus of an individual fibril) in each of the three spatial dimensions, i.e. *E<sub>x</sub>*, *E<sub>y</sub>* and *E<sub>z</sub>*. Empirical measurements of the modulus of an aggregate clot also exist [2], placing its value between 1 and 15,000 dyne/cm<sup>2</sup>, or between 0.1 and 1,500 Pa, so a comparison was made between the simulated Young’s moduli and the empirical measurements. Although the Poisson’s ratio of the aggregate clot is also important, no empirical value was available for comparison, so I did not attempt to find it from simulation.
 
 ## Theory
 There are two types of ANSYS elements available to model a fibrin clot: solid elements and beam elements. Beam elements are the more suitable choice here, given that most fibrin fibrils are rope-shaped (see figure 2).
 
 
 ![Confocal]({{ site.url }}/images/confocal/Series019TenthUN.jpg){:.text-width}
-<center>Figure 2: Micrograph of the fibrin clot being modelled. The thick clumps in figure 1 are due to a combination of factors, including the limited resolution of the confocal microscope, and noise.</center>
+<center>Figure 2: Composite confocal micrograph of the fibrin clot modelled. The thick clumps in figure 1 are due to a combination of factors, including the limited resolution of the confocal microscope, and noise.</center>
 <br>
 It is therefore convenient to model these fibrin ‘ropes’ as cylindrical beam elements of constant cross-sectional area. Interconnections between ropes will be modelled as ANSYS nodes; the interconnecting ropes themselves will be modelled as beams, or ‘sticks’. Figure 3 is a picture of what such a ‘stick’ model might look like. Curved fibrils can be modelled as a series of shorter straight beams, connected by intermediate nodes.
 
@@ -41,12 +41,12 @@ It is therefore convenient to model these fibrin ‘ropes’ as cylindrical beam
 ![Stick]({{ site.url }}/images/E59/stick.svg){:.text-width}
 <center>Figure 3: The beam or ‘stick’ model. Since the beams are flexible, another description might be the spring model, the implications of which are explored more fully in the Discussion.</center>
 <br>
-The 3D ANSYS beam element `Beam4`, shown in figure 4, offers six degrees of freedom: displacement u<sub>x</sub>, u<sub>y</sub>, u<sub>z</sub> and rotation R<sub>x</sub>, R<sub>y</sub>, R<sub>z</sub> [3]. It is an elastic element, capable of axial, torsional and flexural loadings [1]. There are six parameters that need to be specified to fully define this beam element.
+The 3D ANSYS beam element `Beam4`, a schematic of which is shown in figure 4, offers six degrees of freedom: displacement *u<sub>x</sub>*, *u<sub>y</sub>*, *u<sub>z</sub>* and rotation *R<sub>x</sub>*, *R<sub>y</sub>*, *R<sub>z</sub>* [3]. It is an elastic element, capable of axial, torsional and flexural loadings [1]. There are six parameters that need to be specified to fully define this beam element.
 
 ![Beam4]({{ site.url }}/images/E59/beam4.svg){:.full-width}
 <center>Figure 4: Beam4 3D element [1].</center>
 <br>
-For a circular cross section of radius r, they are [4]:
+For a circular cross section of radius *r*, they are [4]:
   1. cross-sectional area $$A = \pi r^2$$
   2. second moment of area about the z-axis $$I_z = \frac{1}{4}\pi r^4$$
   3. second moment of area about the y-axis $$I_y = I_z$$
@@ -54,7 +54,7 @@ For a circular cross section of radius r, they are [4]:
   5. thickness of cross section in the y-direction $$t_y = t_z$$
   6. polar moment of inertia $$J_x = \frac{1}{2}\pi r^4$$.
 
-When the clot is axially loaded by a force $$N$$, the stress is given by $$\sigma = N/A$$, where $$A$$ is the cross-sectional area of the clot sample modelled. The corresponding strain is given by $$\epsilon = \Delta L/L$$, where $$L$$ is the length of the clot sample along a particular axis, and $$\Delta L$$ is the change in this length as the clot is strained. The Young’s modulus can then be calculated from the equation
+When the clot is subjected to an axial force $$N$$, the stress is given by $$\sigma = N/A$$, where $$A$$ is the cross-sectional area of the clot sample. The corresponding strain is given by $$\epsilon = \Delta L/L$$, where $$L$$ is the length of the clot sample along a particular axis, and $$\Delta L$$ is the change in this length as the clot is strained. The Young’s modulus can then be calculated from the equation
 
 $$\begin{equation} E = \frac{\sigma}{\epsilon} \end{equation}$$
 
@@ -90,12 +90,12 @@ The corresponding ANSYS element parameters were calculated and entered into the 
   5. $$t_y = t_z$$ <!-- -->
   6. $$J_x = 1.741\times 10^{−25}$$ m<sup>4</sup>.
 
-With the clot model fully defined in ANSYS, the model was loaded in the x, y and z directions, one direction at a time. To load it in the x direction for instance, all nodes present on the negative x-plane were fixed; a total force of $$1\times 10{−9}$$ N, that is, a force of $$1\times 10^{−9}$$ / no. of nodes, was applied to each node present on the positive x-plane. The y and z planes were each loaded separately in a similar manner.
+With the clot model fully defined in ANSYS, the model was loaded in the x, y and z directions, one direction at a time. To load it in the x direction for instance, all nodes present on the negative x-plane were fixed; a force of $$1\times 10^{−9}$$ / no. of nodes, was applied to each node present on the positive x-plane. The y and z planes were each loaded separately in a similar manner.
 
-Once ANSYS solves the model for each loading and support condition, nodal displacements for the loaded nodes (on the positive plane) were recorded and averaged. These values were used to find the Young’s moduli E<sub>x</sub>, E<sub>y</sub> and E<sub>z</sub>.
+Once ANSYS solves the model for each set of loading and support conditions, nodal displacements for the loaded nodes (on the positive plane) were recorded and averaged. These values were used to find the Young’s moduli *E<sub>x</sub>*, *E<sub>y</sub>* and *E<sub>z</sub>*.
 
 ## Results
-### Calculating E<sub>x</sub>
+### Calculating *E<sub>x</sub>*
 Figure 7 shows the clot model loaded on the positive x-plane.
 
 ![Ex]({{ site.url }}/images/E59/E_x.png){:.full-width}
@@ -116,7 +116,7 @@ $$\sigma_x = \frac{1\times 10^{-9}}{(48.46\times 10^{-6})(50.48\times 10^{-6})} 
 
 The Young’s modulus was $$E_x = \frac{\sigma_x}{\epsilon_x} = 113.5~\text{Pa.}$$
 
-### Calculating E<sub>y</sub>
+### Calculating *E<sub>y</sub>*
 Figure 8 shows the clot model loaded on the positive y-plane.
 
 ![Ey]({{ site.url }}/images/E59/E_y.png){:.full-width}
@@ -136,7 +136,7 @@ $$\sigma_y = \frac{1\times 10^{-9}}{(48.46\times 10^{-6})(50.48\times 10^{-6})} 
 
 The Young’s modulus was $$E_y = \frac{\sigma_y}{\epsilon_y} = 109.1~\text{Pa.}$$
 
-### Calculating E<sub>z</sub>
+### Calculating *E<sub>z</sub>*
 Figure 9 shows the clot model loaded on the positive z-plane.
 
 ![Ez]({{ site.url }}/images/E59/E_z.png){:.full-width}
@@ -158,7 +158,7 @@ The Young’s modulus was $$E_z = \frac{\sigma_z}{\epsilon_z} = 16.17~\text{Pa.}
 ## Discussion
 Table 2 summarises the Young’s moduli simulated in this project.
 
-E<sub>x</sub> (Pa) | E<sub>y</sub> (Pa) | E<sub>z</sub> (Pa)
+*E<sub>x</sub>* (Pa) | *E<sub>y</sub>* (Pa) | *E<sub>z</sub>* (Pa)
 --- | --- | ---
 113.5 | 109.1 | 16.17
 {:.table}
@@ -166,16 +166,16 @@ E<sub>x</sub> (Pa) | E<sub>y</sub> (Pa) | E<sub>z</sub> (Pa)
 <br>
 All three moduli fell within the empirically determined range of 0.1--1500 MPa, giving confidence to my simulated results. That said, as mentioned in the Theory, my model gives lower bound estimates; it is possible that the true Young’s moduli exceed this empirical range.
 
-More notably, E<sub>x</sub> and E<sub>y</sub> matched each other closely, with a percentage difference of only
+More notably, *E<sub>x</sub>* and *E<sub>y</sub>* matched each other closely, with a percentage difference of only
 $$\begin{equation}\frac{113.5-109.1}{109.1}\times 100\% = 4\% \end{equation}$$.
 
-One of the assumptions made about the fibrin clot is that the clot is homogeneous and isotropic. Ideally, this means E<sub>x</sub> = E<sub>y</sub> = E<sub>z</sub>; since the clot modelled is only a small cubic sample out of a much larger clot, had the entire clot been simulated, any effects caused by the presence of local non-uniformities will likely be averaged out, and all three moduli should match each other more closely. The fact that with such a small sample, E<sub>x</sub> and E<sub>y</sub> already agree with each other to within 4% lends support to the assumption about the clot’s isotropy.
+One of the assumptions made about the fibrin clot is that the clot is homogeneous and isotropic. Ideally, this means *E<sub>x</sub>* = *E<sub>y</sub>* = *E<sub>z</sub>*; since the clot I modelled is only a small cubic sample out of a much larger clot, had the entire clot been simulated, any effects caused by the presence of local non-uniformities will likely be averaged out, and all three moduli should match each other more closely. The fact that with such a small sample, *E<sub>x</sub>* and *E<sub>y</sub>* already agree with each other to within 4% lends support to the assumption about the clot’s isotropy.
 
-E<sub>z</sub> on the other hand deviated significantly from either of the other two Young’s moduli. It had a percentage difference from E<sub>x</sub> of
+*E<sub>z</sub>* on the other hand deviated significantly from either of the other two Young’s moduli. It had a percentage difference from *E<sub>x</sub>* of
 
 $$\begin{equation*}\frac{113.5-16.17}{113.5}\times 100\% = 86\% \end{equation*}$$
 
-and from E<sub>y</sub> of
+and from *E<sub>y</sub>* of
 
 $$\begin{equation*}\frac{109.1-16.17}{109.1}\times 100\% = 85\% \end{equation*}.$$
 
@@ -184,21 +184,21 @@ There are two possible explanations---which are not mutually exclusive---for thi
 ![Slide]({{ site.url }}/images/E59/slide.svg){:.text-width}
 <center>Figure 10: Schematic of microscope slide used to fabricate the clot.</center>
 <br>
-The other possibility stems from the way the clot was imaged under the microscope. The confocal microscope takes thin optical sections through the z-depth of the sample. These sections were subsequently stacked and combined to form a 3D reconstruction of the clot. Thus the vertical resolution of the scan could not be perfectly matched with the resolution in the plane of each optical section (the xy-plane). This resulted in noticeable smearing of clot structure in the xy-plane that was visible in the 3D printed model as think clumps of fibrils in the z-direction.
+The other possibility stems from the way the clot was imaged under the microscope. The confocal microscope took thin optical sections through the z-depth of the sample. These sections were subsequently stacked and combined to form a 3D reconstruction of the clot. Thus the vertical resolution of the scan could not be perfectly matched with the resolution in the plane of each optical section (the xy-plane). This resulted in noticeable smearing of clot structure in the xy-plane that was visible in the 3D printed model as thick clumps of fibrils in the z-direction.
 
 In any case, in my model more fibrils may consequently have been oriented in the xy-plane than along the z-axis. The axial rigidity of a fibrin fibril is defined as
 
-$$\begin{equation*} AE = \pi \left(\frac{1.154\times 10^{-6}}{2}\right)^2(5\times 10^{6})~\text{N,}\end{equation*}$$
+$$\begin{equation*} AE = \pi \left(\frac{1.154\times 10^{-6}}{2}\right)^2(5\times 10^{6})=5.23\times 10^{-6}~\text{N,}\end{equation*}$$
 
 while its flexural rigidity is defined as
 
 $$\begin{equation*} EI = (5\times 10^{6})\left(\frac{1}{4}\right)\pi\left(\frac{1.154\times 10^{-6}}{2}\right)^4=(4.35\times 10^{-19})~\mathrm{N\cdot m^2.}\end{equation*}$$
 
-Since $$AE\gg EI$$, fibrin fibrils are much stiffer when loaded axially than when undergoing bending. If fibrils lie predominantly in the xy-plane, the clot would resist loading in the x and y directions---where most fibrils are loaded axially, than in the Z direction---where most fibrils are loaded flexurally. The combined effect of these factors may have caused the almost 90% deviation we saw of E<sub>z</sub> from either E<sub>x</sub> or E<sub>y</sub>.
+Since $$AE\gg EI$$, fibrin fibrils are much stiffer when loaded axially than when undergoing bending. If fibrils lie predominantly in the xy-plane, the clot would resist loading in the x and y directions---where most fibrils are loaded axially, than in the Z direction---where most fibrils are loaded flexurally. The combined effect of these factors may have caused the almost 90% deviation we saw of *E<sub>z</sub>* from either *E<sub>x</sub>* or *E<sub>y</sub>*.
 
 Of perhaps greater interest is the dramatic difference between the bulk Young’s moduli of the clot, which were on the order of 100 Pa, and the Young’s modulus of an *individual* fibrin fibril, 5 MPa as used in my simulations.
 
-This phenomenon can be understood in terms of conformational changes in the fibrin network as loads are applied to it. The spring analogy in figure 11, where springs connected in a combined series and parallel configuration represent a network of fibrin fibrils of Young’s modulus $$E$$, demonstrates that the total elongation of a network of fibrils can be achieved with little or even negative strain in individual fibrils. Depending on the actual arrangement of fibrils, the network may have a much lower stiffness than a single fibril.
+This phenomenon can be understood in terms of conformational changes in the fibrin network as loads are applied to it. The spring analogy in figure 11, where springs connected in a combined series and parallel configuration represent a network of fibrin fibrils of Young’s modulus $$E$$, demonstrates that the total elongation of a network of fibrils can be achieved with little or even negative strain in individual fibrils. Depending on the actual arrangement of fibrils, the network may have a much lower overall stiffness than a single fibril.
 
 ![SpringAnalogy]({{ site.url }}/images/E59/SpringAnalogy.svg){:.text-width}
 <center>Figure 11: Spring analogy for conformational change in fibrin network.</center>
@@ -207,10 +207,10 @@ In addition, Bradshaw et al. [8] showed that fibrin and similar proteins can eve
 
 Empirical analyses [9, 10] of the protein fibronectin have hinted that molecular conformational changes may arise from molecular rearrangement of fibrils, as well as protein unfolding of individual fibrils. A similar mechanism may be at work in fibrin.
 
-My simulations did not capture these molecular factors. They do show, however, that molecular structural modifications induced by external forces may further reduce the overall stiffness of the fibrin network relative to single fibrils, and underscore the inadequacy of any analysis of a fibrin clot based purely on a macroscopic solid mechanical model.
+My simulations cannot capture these molecular factors. They do show, however, that molecular structural modifications induced by external forces may further reduce the overall stiffness of the fibrin network relative to single fibrils, and underscore the inadequacy of any analysis of a fibrin clot based purely on a macroscopic solid mechanical model.
 
 ## Conclusion
-This complex procedure to model a fibrin blood clot, from imaging the clot, to slicing it optically, to 3D printing it, mapping nodal coordinates, then simulating its deflection in ANSYS, has proven to be a useful tool for performing stress and strain analysis on the clot. In order to apply this method to larger, denser, more complex clots though, the procedure must be adapted to automate node generation, which even with such a small clot was very labour intensive and time-consuming.
+This complex procedure to model a fibrin blood clot, from imaging the clot, to slicing it optically, to 3D printing it, mapping nodal coordinates, then simulating its deflection in ANSYS, has proven to be a useful tool for performing stress and strain analysis on the clot. In order to apply this method to larger, denser, more complex clots though, the procedure must be adapted to automate node generation, which even with such a small and porous clot was very labour intensive and time-consuming.
 
 ## References
 [1] ANSYS, 2016. “ANSYS Academic Research, Release 17.2, Help System, Beam4 3d Elastic Beam”.
@@ -236,11 +236,11 @@ Mission, KS. OCLC: 166390730.
 [10] Smith, M. L., Gourdon, D., Little, W. C., Kubow, K. E., Eguiluz, R. A., Luna-Morris, S., and Vogel, V., 2007. “Force-Induced Unfolding of Fibronectin in the Extracellular Matrix of Living Cells”. *PLoS Biol.*, **5**(10), Oct., p. e268.
 
 ## Acknowledgements
-I would like to thank Professor Siddiqui and Professor Everbach for their mentorship, support and advice throughout the course of this project. In addition, I would like to thank Professor Vallen in the Biology department for providing training to use the confocal microscope, and Irina Chernysh in the Department of Cell and Developmental Biology at the University of Pennsylvania for sharing her recipe for making fibrin with me.
+I would like to thank Professor Siddiqui and Professor Everbach for their mentorship, support and advice throughout the course of this project. In addition, I would like to thank Professor Vallen in the Biology department for training me to use the confocal microscope, as well as Irina Chernysh in the Department of Cell and Developmental Biology at the University of Pennsylvania for sharing her recipe for making fibrin with me.
 
 ## Appendices
 ### Appendix A
 The ANSYS input `.txt` file used to run all simulations in ANSYS can be downloaded [here]({{ site.url }}/images/E59/FibrinSimTenthUN.txt).
 
 ### Appendix B
-The ANSYS output `.txt` file containing nodal displacements u<sub>x</sub>, u<sub>y</sub> and u<sub>z</sub> can be downloaded [here]({{ site.url }}/images/E59/ElasticModuli.txt).
+The ANSYS output `.txt` file containing nodal displacements *u<sub>x</sub>*, *u<sub>y</sub>* and *u<sub>z</sub>* can be downloaded [here]({{ site.url }}/images/E59/ElasticModuli.txt).
