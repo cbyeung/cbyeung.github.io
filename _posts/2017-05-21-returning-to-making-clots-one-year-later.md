@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Returning to making clots after one year
+title:  Returning to making clots one year later
 date:   2017-05-21
 categories: ultrasound confocal clot 3dprint fiji
 tags: ultrasound confocal clot 3dprint fiji
@@ -77,7 +77,7 @@ In this case though, while some structure is visible at 1024px by 1024px, croppi
 <br>
 Long story short, it is hard to compare these small-chamber clots to larger clots and draw any meaningful conclusions.
 
-Another suspicion I have long harboured is that the thick clumps that tend to favour the z-axis are not physical; in other words, they could be artifacts of the imaging process. One crucial component of generating a three-dimensional object from two-dimensional images is interpolation. The `3D viewer` plugin of `Fiji` stitches the z-stack together and interpolates. The 3D printer also contributes as it slices the 3D model from `Fiji` into a large but finite number of layers. Since the 3D prints all look remarkably close to the models I see on screen though (Doug Willen at Information Technology Services assured me that altering the orientation of the print, i.e. printing the clot on its side, will make no difference), the likely culprit is interpolation by `3D viewer`.
+Another suspicion I have long harboured is that the thick clumps that tend to favour the z-axis are not physical; in other words, they could be artifacts of the imaging process. One crucial component of generating a three-dimensional object from two-dimensional images is interpolation. The `3D viewer` plugin of `Fiji` stitches the z-stack together and performs interpolation. The 3D printer also contributes as it slices the 3D model from `3D viewer` into a large but finite number of layers. Since the 3D prints all look remarkably close to the models I see on screen though (Doug Willen at Information Technology Services assured me that altering the orientation of the print, i.e. printing the clot on its side, will make no difference), the likely culprit is interpolation by `3D viewer`.
 
 I put interpolation to the test by reducing the z-step size at the confocal microscope from 0.21&mu;m to 0.04&mu;m. Excessive photobleaching and my RAM size necessitated a reduction in z-range from 50&mu;m to 10&mu;m. The net result is a fivefold increase in z-resolution and fivefold decrease in z-range.
 
@@ -91,7 +91,7 @@ Ceteris paribus, figure 10 shows the output `.stl` file.
 </div>
 <center>Figure 10: High depth resolution model of clot made from 1.0un/mL thrombin. Brightness and contrast were raised dramatically in post-processing. This is my first time embedding a 3D interactive model of my own. Try pressing '3' on your keyboard to change the rendering mode.</center>
 <br>
-The output looks virtually indistinguishable from earlier prints. Thick clumps and flat surfaces are still abundantly present. Nonetheless it occurred to me that with the increased resolution available, perhaps it would not be necessary to increase the brightness of the z-stack as I normally would. With a lower resolution stack, thinner fibrils that happen to be caught in the gap between slices may fail to register; in such circumstances, it is helpful to increase the brightness in post-processing to include some out-of-focus light so that ropes do not become broken during interpolation. My measurements show the typical fibrin rope diameter to be approximately 1&mu;m, which is comparable to a z-step size of 0.21&mu;m.
+The output looks virtually indistinguishable from earlier prints. Thick clumps and flat surfaces are still abundantly present. Nonetheless it occurred to me that with the increased resolution available, perhaps it would not be necessary to increase the brightness of the z-stack as I normally would. With a low resolution stack, thinner fibrils that happen to be caught in the gap between slices may fail to register; in such circumstances, it is helpful to increase the brightness in post-processing to include some out-of-focus light so that fainter ropes do not become broken strands during interpolation. My measurements show the typical fibrin rope diameter to be approximately 1&mu;m, which is comparable to a z-step size of 0.21&mu;m.
 
 On the other hand, a z-step size of 0.04&mu;m ought to be well below all but the thinnest of fibrils. So I reprocessed the same z-stack in figure 10, but this time kept the raw brightness/contrast settings from the scope. These settings were determined with the help of the Lookup table (LUT) built into the `Leica` software controller.
 <div class="sketchfab-embed-wrapper"><iframe width="722" height="480" src="https://sketchfab.com/models/7a6009df13b24cd389e0b76fa2944196/embed?camera=0" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
@@ -102,10 +102,10 @@ On the other hand, a z-step size of 0.04&mu;m ought to be well below all but the
     on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
 </p>
 </div>
-<center>Figure 11: High depth resolution model of clot made from 1.0un/mL thrombin. Brightness and contrast were kept unaltered in post-processing.</center>
+<center>Figure 11: High depth resolution model of clot made from 1.0un/mL thrombin. Brightness and contrast were unaltered in post-processing.</center>
 <br>
 The difference is immediately apparent, even though both models depict one and the same sample. The model in figure 11 is *much* more porous owing to its *much* thinner fibrils in the xy-plane. Furthermore, although the infamous flat surfaces are still visible in figure 11 in the xz- and yz-planes, they are smaller; the xz- and yz-planes now look similar to the xy-plane. This is very good news, considering it supports the idea that clots are homogeneous and isotropic.
 
 ---
 <br>
-At this point, I think it would be wise to put clot-making on pause. Professor Carr Everbach has multiple occasions reminded me that all of the clots I have ever made look somewhat distinct from the clots that the haematologists at UPenn made. My fibrin fibrils do not look nearly as ropy as they ought to. Another visit to the haematologists is in order. Until then, *au revoir*!
+At this point, I think it would be wise to put clot-making on pause. Professor Carr Everbach has on multiple occasions reminded me that all of the clots I have ever made look somewhat distinct from the clots that the haematologists at UPenn made. My fibrin fibrils do not look nearly as ropy as they ought to. Another visit to the haematologists is in order. Until then, *au revoir*!
