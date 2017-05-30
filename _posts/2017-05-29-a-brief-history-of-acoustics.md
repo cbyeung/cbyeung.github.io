@@ -17,7 +17,7 @@ Synthetic versions of tPA---called r-tPA (recombinant tPA)---exist. Examples inc
 UAT (ultrasound-accelerated thrombolysis) works via the combined effects of thermal and mechanical action.
 
 ## Acoustics
-Sound waves are mechanical compression waves. These require a medium unlike light waves. A suitable medium possesses the following properties:
+Sound waves are mechanical compression waves. Unlike electromagnetic waves, these require a medium. A suitable medium possesses the following properties:
   - mass: provides inertia that carries displaced particles past their equilibrium point
   - stiffness
   - restoring force
@@ -35,7 +35,7 @@ $$
 
 For a sound wave, the stiffness arises from the Ideal Gas Law $$P=\rho R T$$, where $$R$$ is the gas constant specific to the gas comprising the medium. The dissipation is proportional to the square of the frequency.
 
-To launch a wave, the surface must move more than a wavelength. The size of the surface must at least be comparable to the wavelength as well.
+To launch a wave, the surface must move by more than a wavelength. The size of the surface must at least be comparable to the wavelength as well.
 
 $$ka$$---where $$k$$ is the wavenumber and has units of inverse length and $$a$$ is the diameter and has units of length---is a dimensionless number that determines acoustic projection, specifically, the shape of the beam (e.g. omnidirectional, hemispheric, etc.) and the efficiency of the beam.
 
@@ -46,7 +46,7 @@ Acoustical propagation is nonlinear. For small amplitudes, waves stay mostly sin
 ![Sinusoid]({{ site.url }}/images/acoustics/sinusoid.svg){:.text-width}
 <center>Figure 1: A sinusoidal wave. For small amplitudes, P<sub>+</sub> = P<sub>-</sub> .</center>
 <br>
-In general, due to the Perfect Gas Law, sound waves propagate adiabatically (because sound oscillations tend to be very fast) rather than isothermally. This means compression regions get hotter, rarefactions cooler. As a consequence, speed of sound is faster in the hotter compression regions. Components of a wave move at different speeds, causing a sinusoid to distort and eventually become an N-wave. Since a distorted wave is a superposition of the fundamental *plus* higher harmonics, as a wave is distorted, energy migrates into higher harmonics.
+In general, sound waves propagate adiabatically (because sound oscillations tend to be very fast) rather than isothermally. Due to the Perfect Gas Law, compression regions get hotter, rarefactions cooler. As a consequence, speed of sound is faster in the hotter compression regions. Components of a wave move at different speeds, causing a sinusoid to distort and eventually become an N-wave. Since a distorted wave is a superposition of the fundamental *plus* higher harmonics, as a wave is distorted, energy migrates into higher harmonics.
 
 ## Surface tension
 A liquid is a state of matter which cannot sustain a shear. It deforms continuously. A gas expands to fill all available space, while a liquid does not. Surface tension is a property of all liquids.
@@ -66,7 +66,11 @@ Bubble is gas. Void is vacuum. Both are unstable.
 
 Henry's Law states that 1L of liquid at s.t.p contains exactly 1L of dissolved gases. The higher the pressure, the more gas can be dissolved ($$PV=nRT$$). Higher temperature reduces the amount of gas that can be dissolved.
 
-Suppose there is more gas inside a bubble than outside. Concentration gradient drives gas to diffuse outwards through the bubble wall. As the volume of the bubble decreases, $$\sigma/2R$$ increases, the pressure gradient increases further. This creates positive feedback, whereby the bubble shrinks ever faster, eventually completely dissolving away. Surfactants (e.g. soap) can counteract this effect. Their hydrophobic ends accumulate inside bubbles, stabilising the size of the size of the bubbles through mutual electrostatic repulsion.
+Suppose there is more gas inside a bubble than outside. Concentration gradient drives gas to diffuse outwards through the bubble wall. As the volume of the bubble decreases, $$\sigma/2R$$ increases, the pressure gradient increases further. This creates positive feedback, whereby the bubble shrinks ever faster, eventually completely dissolving away. Surfactants (e.g. soap) can counteract this effect. Their hydrophobic ends accumulate inside bubbles, stabilising the size of the bubbles through mutual electrostatic repulsion.
+
+![Surfactant]({{ site.url }}/images/acoustics/surfactant.svg){:.text-width}
+<center>Figure 2: Surfactant molecules stabilising a bubble. I am using '+' symbols to represent the hydrophobic end.</center>
+<br>
 
 When a bubble is compressed, for instance in the compression region of a sound wave, the bubble volume decreases. By the logic above, there exists an elevated concentration of gas inside the bubble. Outside, by Henry's Law, the saturation concentration increases, so the relative gas concentration outside the bubble actually *decreases*. This generates a very large concentration gradient that drives gas out of bubbles.
 
@@ -83,7 +87,7 @@ There are several damping mechanisms:
   - thermal: heat exchange.
 
 ### Stable cavitation
-Bubble oscillates in a continuous fashion. Cycles are all similar. Usually arises due to a continuous pressure wave around the resonance frequency range of the bubble.
+Bubble oscillates in a continuous fashion. Cycles are all similar. It usually arises due to a continuous pressure wave around the resonance frequency range of the bubble.
 
 The Minnaert frequency or resonance frequency is defined thus:
 
@@ -98,8 +102,17 @@ where $$R_0$$ is the equilibrium bubble radius, $$\gamma=c_P/c_V$$, $$P_a$$ is t
 
 Logistic map is one way of understanding the complex behaviour of bubbles, especially at large amplitudes.
 
-Bubbles can be modelled as nonlinear, stiffening springs. Large apmlitude pressure waves cause bubbles to higher harmonics in addition to the driving frequency. Broadband emission is a good way to identify stable cavitation.
+Bubbles can be modelled as nonlinear, stiffening springs. Large amplitude pressure waves cause bubbles to emit higher harmonics in addition to the driving frequency. Broadband emission is a good way to identify stable cavitation.
 
 The stiffness of the gas is important in stable cavitation.
 
 ### Inertial cavitation
+Inertial cavitation is characterised by the presence of so much inertia in the liquid surrounding the bubbles that the stiffness of the gas in the bubbles becomes trivial. It can be achieved by driving bubbles at their resonance frequency at very large amplitudes, usually using short pulses at high frequency.
+
+The minimum bubble radius in inertial cavitation is $$2R_0$$, though the actual radius can often be much larger. If the radius is $$10R_0$$, the volume of the bubble is 1000 times its volume at equilibrium, making its internal pressure one-thousandth the equilibrium pressure. In this state, the interior of the bubble is approximately a vacuum. The surrounding liquid (usually water) is still at 1atm so rushes in and crushes the bubble to a tiny size, leading to extremely high internal pressure. This action causes a shock wave, allowing a hydrophone to pick up the sounds of inertially cavitating, collapsing bubbles.
+
+Since the collapse occurs extremely rapidly, it is also adiabatic, leading to interior temperatures comparable to that found on the surface of the Sun. Exotic behaviours can be observed, such as sonoluminescence (e.g. SBSL: single bubble sonoluminescence, which are femtosecond light pulses), fluorescence, sonochemistry or cavitational chemistry (chemical products that only form under extreme conditions).
+
+For us, we are most interested in inertial cavitation. Stable cavitation is important for bubbles to translate and drive through a clot.
+
+Next time: acoustical radiation force, which is a 2<sup>nd</sup> order force...
