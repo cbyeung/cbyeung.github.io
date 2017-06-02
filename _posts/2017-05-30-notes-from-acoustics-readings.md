@@ -22,3 +22,5 @@ tags: acoustics ultrasound wave bubble cavitation fibrin clot
 $$\begin{equation*}
 R\ddot{R}+\frac{3\dot{R}^2}{2} = \frac{1}{\rho}\left\{ \left( p_0+\frac{2\sigma}{R_0}-p_v \right)\left( \frac{R_0}{R} \right)^{3\kappa}+p_v-\frac{2\sigma}{R}-\frac{4\eta\dot{R}}{R}-p_0-P(t) \right\}.
 \end{equation*}$$
+
+**pp 311** A small change in the parameters ($$P_\text{input amplitude}$$, $$R_0$$, $$\omega$$) of Rayleigh-Plesset could bring about dramatic changes in the radius-time curve.

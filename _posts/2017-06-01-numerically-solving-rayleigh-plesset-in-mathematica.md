@@ -30,8 +30,7 @@ values" Wikipedia*)
 (*Vapour pressure of water 2338.8 Pa*)
 Pv := 2338.8
 (*Shear or dynamic viscosity of water 0.001002 Pa-s*)
-\[Eta] := \
-0.001002
+\[Eta] := 0.001002
 (*10kHz sound field of pressure amplitude 2.7 bar*)
 
 P[t] := 270000*Sin[2*\[Pi]*10000*t]
@@ -45,4 +44,31 @@ Plot[Evaluate[R[t] /. %], {t, 0, 0.001},
  AxesLabel -> {"Time (s)", "Bubble radius R (m)"}]
 ~~~
 
-Apologies for the absence of syntax highlighting; `Rouge` currently does not support Mathematica---a massive oversight in my opinion.
+Apologies for the absence of syntax highlighting; `Rouge` currently does not support the Wolfram language of Mathematica---a massive oversight in my opinion.
+
+Here's the output:
+
+![Rayleigh]({{ site.url }}/images/acoustics/rayleigh.svg){:.text-width}
+<center>Figure 1: A bubble of radius 2mm, subjected to a 10kHz sinusoidal sound field of amplitude 270,000Pa.</center>
+<br>
+Figure 1 matches figure 4.6 in Leighton exactly; a very encouraging sign.
+
+![LeightonFig4_6]({{ site.url }}/images/acoustics/LeightonFig4_6.png){:.text-width}
+<center>Figure 4.6, pp. 309, <i>The Acoustic Bubble</i> by T.G. Leighton, 1994.</center>
+<br>
+The bubble behaviour in figures 1 and 4.6 are largely periodic. I ran an additional check for a bubble slightly below resonance size. If my script correctly predicts the much more chaotic oscillations one would expect that match Leighton's figure 4.7, I feel confident I have implemented Rayleigh-Plesset correctly.
+
+![LeightonFig4_7]({{ site.url }}/images/acoustics/LeightonFig4_7.png){:.text-width}
+<center>Figure 4.7, pp. 309, <i>The Acoustic Bubble</i> by T.G. Leighton, 1994. Bubble radius 0.10mm subjected to a 10kHz sinusoidal sound field of amplitude 240,000Pa.</center>
+<br>
+The result is decidedly unexpected.
+
+![RayleighResonance]({{ site.url }}/images/acoustics/RayleighResonance.svg){:.text-width}
+<center>Figure 2: A bubble of radius 0.1mm, subjected to a 10kHz sinusoidal sound field of amplitude 240,000Pa.</center>
+<br>
+Notice that if I lower the pressure amplitude just slightly, from 240,000Pa to 239,120Pa, the radius-time curve is noticeably altered, matching figure 4.7 in Leighton.
+
+![RayleighResonanceAdjusted]({{ site.url }}/images/acoustics/RayleighResonanceAdjusted.svg){:.text-width}
+<center>Figure 3: A bubble of radius 0.1mm, subjected to a 10kHz sinusoidal sound field of amplitude 239,120Pa.</center>
+<br>
+In retrospect, the fact that the bubble is near resonance size means small changes in inputs are amplified by the chaotic response of the bubble, reminding me of the *logistic map*. Leighton expresses a similar sentiment on page 311.
