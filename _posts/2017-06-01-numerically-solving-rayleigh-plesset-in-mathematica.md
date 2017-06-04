@@ -66,9 +66,24 @@ The result is decidedly unexpected.
 ![RayleighResonance]({{ site.url }}/images/acoustics/RayleighResonance.svg){:.text-width}
 <center>Figure 2: A bubble of radius 0.1mm, subjected to a 10kHz sinusoidal sound field of amplitude 240,000Pa.</center>
 <br>
-Notice that if I lower the pressure amplitude just slightly, from 240,000Pa to 239,120Pa, the radius-time curve is noticeably altered, matching figure 4.7 in Leighton.
+Notice that if I lower the pressure amplitude ever so *slightly*, from 240,000Pa to 239,120Pa, the radius-time curve is noticeably altered, matching figure 4.7 in Leighton.
 
 ![RayleighResonanceAdjusted]({{ site.url }}/images/acoustics/RayleighResonanceAdjusted.svg){:.text-width}
 <center>Figure 3: A bubble of radius 0.1mm, subjected to a 10kHz sinusoidal sound field of amplitude 239,120Pa.</center>
 <br>
-In retrospect, the fact that the bubble is near resonance size means small changes in inputs are amplified by the chaotic response of the bubble, reminding me of the *logistic map*. Leighton expresses a similar sentiment on page 311.
+In retrospect, the fact that the bubble is near resonance size means small changes in inputs are amplified by the chaotic response of the bubble, reminding me of the *logistic map*. Leighton expresses a similar sentiment on page 311: "a small change in certain parameters ($$P_A$$, $$R_0$$, $$\omega$$) could bring about a dramatic change in the radius-time curve." (pp. 311, Leighton, 1994)
+
+I wanted to see whether over a longer time scale the transient response might die out, leaving behind only the stable, periodic response. Increasing *t* tenfold from 0---0.001s to 0---0.01s immediately saw `Mathematica` throwing up its hands and throwing me a singularity or stiffness error. Fearing the latter, I wanted to switch to a stiff solver, only to discover `Mathematica` usually takes care of it automatically. Singularity then.
+
+I reduced *t* to just beyond the location of the suspected singularity at 0.00123s, and *voil&agrave;*! the radius goes to negative infinity.
+
+![rayleighResonanceSingularity]({{ site.url }}/images/acoustics/rayleighResonanceSingularity.svg){:.text-width}
+<center>Figure 4: Infinite negative radius... <i>Delicious</i>. Inertial cavitation posing as stable cavitation. </center>
+<br>
+Evidently the bubble is unstable; it just took a bit longer to collapse.
+
+Suppose we make the bubble much smaller, down to microns, as characteristic of microbubbles?
+
+![rayleighInertial]({{ site.url }}/images/acoustics/rayleighInertial.svg){:.text-width}
+<center>Figure 5: Inertial cavitation experienced by a bubble of radius 10&mu;m, i.e. the radius of a typical microbubble. Notice the rapid collapse.</center>
+<br>
