@@ -63,15 +63,15 @@ The bubble behaviour in figures 1 and 4.6 are largely periodic. I ran an additio
 <br>
 The result is decidedly unexpected.
 
-![RayleighResonance]({{ site.url }}/images/acoustics/RayleighResonance.svg){:.text-width}
+![RayleighResonance]({{ site.url }}/images/acoustics/rayleighResonance.svg){:.text-width}
 <center>Figure 2: A bubble of radius 0.1mm, subjected to a 10kHz sinusoidal sound field of amplitude 240,000Pa.</center>
 <br>
 Notice that if I lower the pressure amplitude ever so *slightly*, from 240,000Pa to 239,120Pa, the radius-time curve is noticeably altered, matching figure 4.7 in Leighton.
 
-![RayleighResonanceAdjusted]({{ site.url }}/images/acoustics/RayleighResonanceAdjusted.svg){:.text-width}
+![RayleighResonanceAdjusted]({{ site.url }}/images/acoustics/rayleighResonanceAdjusted.svg){:.text-width}
 <center>Figure 3: A bubble of radius 0.1mm, subjected to a 10kHz sinusoidal sound field of amplitude 239,120Pa.</center>
 <br>
-In retrospect, the fact that the bubble is near resonance size means small changes in inputs are amplified by the chaotic response of the bubble, reminding me of the *logistic map*. Leighton expresses a similar sentiment on page 311: "a small change in certain parameters ($$P_A$$, $$R_0$$, $$\omega$$) could bring about a dramatic change in the radius-time curve." (pp. 311, Leighton, 1994)
+In retrospect, the fact that the bubble is near resonance size means small changes in inputs are amplified by the chaotic response of the bubble, reminding me of the *logistic map*. Leighton expresses a similar sentiment on page 311: "a small change in certain parameters ($$P_A$$, $$R_0$$, $$\omega$$) could bring about a dramatic change in the radius-time curve." (pp. 311, Leighton, 1994) There are many constants present in the Rayleigh-Plesset equation that undoubtedly play a role in its solution as well. Since Leighton does not specify what values he used, it is not unreasonable that our pressure amplitudes are somewhat different.
 
 I wanted to see whether over a longer time scale the transient response might die out, leaving behind only the stable, periodic response. Increasing *t* tenfold from 0---0.001s to 0---0.01s immediately saw `Mathematica` throwing up its hands and throwing me a singularity or stiffness error. Fearing the latter, I wanted to switch to a stiff solver, only to discover `Mathematica` usually takes care of it automatically. Singularity then.
 
@@ -84,6 +84,12 @@ Evidently the bubble is unstable; it just took a bit longer to collapse.
 
 Suppose we make the bubble much smaller, down to microns, as characteristic of microbubbles?
 
+
 ![rayleighInertial]({{ site.url }}/images/acoustics/rayleighInertial.svg){:.text-width}
 <center>Figure 5: Inertial cavitation experienced by a bubble of radius 10&mu;m, i.e. the radius of a typical microbubble. Notice the rapid collapse.</center>
+<br>
+This matches Leighton's radius-time curve.
+
+![rayleighInertial]({{ site.url }}/images/acoustics/rayleighInertial.png){:.text-width}
+<center>Figure 4.8, pp. 310, <i>The Acoustic Bubble</i> by T.G. Leighton, 1994. Bubble radius 10&mu;m subjected to a 10kHz sinusoidal sound field of amplitude 240,000Pa.</center>
 <br>
