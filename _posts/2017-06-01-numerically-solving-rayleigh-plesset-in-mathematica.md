@@ -24,8 +24,7 @@ R0 := 0.002
 \[Rho] := 1000
 (*static pressure 101325 Pa*)
 P0 := 101325
-(*surface tension of water 0.07286 N/m; source: "Surface-tension \
-values" Wikipedia*)
+(*surface tension of water 0.07286 N/m; source: "Surface-tension values" Wikipedia*)
 \[Sigma] := 0.07286
 (*Vapour pressure of water 2338.8 Pa*)
 Pv := 2338.8
@@ -93,3 +92,73 @@ This matches Leighton's radius-time curve.
 ![rayleighInertial]({{ site.url }}/images/acoustics/rayleighInertial.png){:.text-width}
 <center>Figure 4.8, pp. 310, <i>The Acoustic Bubble</i> by T.G. Leighton, 1994. Bubble radius 10&mu;m subjected to a 10kHz sinusoidal sound field of amplitude 240,000Pa.</center>
 <br>
+Carr provided a set of typical parameters one might encounter in realistic ultrasonic microbubble experiments:
+  - Amplitude (zero to max): 500kPa to 2MPa
+  - Frequency: 1.0MHz
+  - Pulse length: 5&mu;s (5 cycles per burst)
+  - Bubble radius:  3.0&mu;m, but perhaps start at 2.0&mu;m and walk up to 3.5&mu;m in steps of 0.1&mu;m for 500kPa amplitude to find the resonance radius.
+
+Here's my `Mathematica` script:
+{% raw %}
+~~~
+Clear[R, R0, \[Rho], P0, \[Sigma], Pv, \[Eta], P, \[Kappa], sol]
+(*initial radius 3\[Mu]m*)
+R0 := 0.000003
+(*density of water 1000 kg/m^3*)
+\[Rho] := 1000
+(*static pressure 101325 Pa*)
+P0 := 101325
+(*surface tension of water 0.07286 N/m; source: "Surface-tension values" Wikipedia*)
+\[Sigma] := 0.07286
+(*Vapour pressure of water 2338.8 Pa*)
+Pv := 2338.8
+(*Shear or dynamic viscosity of water 0.001002 Pa-s*)
+\[Eta] := 0.001002
+(*10kHz sound field of pressure amplitude 2.4 bar; also try 2.3912 bar. Pulse switches off after 5\[Mu]s.*)
+
+P[t] := Piecewise[{{500000*Sin[2*\[Pi]*1000000*t], t < 0.000005}, {0, t >= 0.000005}}]
+(*Polytropic index 1.4 since adiabatic*)
+\[Kappa] := 1.4
+sol = NDSolve[{R[t]*R''[t] + (3 (R'[t])^2)/2 ==
+    1/\[Rho]*((P0 + (2*\[Sigma])/R0 - Pv)*(R0/R[t])^(3*\[Kappa]) +
+       Pv - (2*\[Sigma])/R[t] - (4*\[Eta]*R'[t])/R[t] - P0 - P[t]),
+   R[0] == R0, R'[0] == 0}, R, {t, 0, 0.00002}]
+Plot[Evaluate[R[t]*1000000 /. sol], {t, 0, 0.00002},
+ AxesLabel -> {"Time (s)", "Bubble radius (\[Mu]m)"}]
+NMaximize[{Evaluate[R[t]/R0 /. sol[[1]]], 0 <= t <= 0.000005}, t]
+~~~
+{% endraw %}
+
+The `Piecewise` function is used to 'switch-off' the sound pulse after 5&mu;s. Not sure why `[[1]]` is necessary, though it probably has to do with ensuring dimensions match---perhaps `sol` is not a scalar.
+
+Once I recorded $$R_{max}/R_0$$ for $$R_0$$ from 2.0 to 3.5&mu;m, I turned to `Python` (in hindsight `Mathematica` could gladly have done it) to find the resonance size.
+
+{% highlight python %}
+# import numpy library
+import numpy as np
+# set up and import matplotlib
+%matplotlib inline
+import matplotlib.pyplot as mp
+# import seaborn library
+import seaborn
+
+# equilibrium radii
+R0 = [2,2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.1,3.2,3.3,3.4,3.5]
+
+# maximum relative radius Rmax/R0
+RmaxRel = [7.93585,7.55434,7.15335,6.69714,6.18627,5.73354,5.43936,6.38532,6.61822,6.51025,6.21851,5.7339,5.03286,4.22899,4.1211,4.00593]
+
+# plot shifted H1 and L1 data in time domain
+mp.plot(R0,RmaxRel)
+mp.xlabel('Equilibrium radius $R_0$ ($\mu$m)')
+mp.ylabel('Relative maximum radius $R_{max}/R_0$')
+mp.savefig('findResonanceRadius.pdf')
+mp.show()
+{% endhighlight %}
+
+Thankfully `Rouge` supports syntax-highlighting `Python` beautifully.
+
+![findResonanceRadius]({{ site.url }}/images/acoustics/findResonanceRadius.svg){:.text-width}
+<center>Figure 6: R<sub>max</sub>/R<sub>0</sub> is maximised at R<sub>0</sub> = 2.8&mu;m. At this equilibrium radius, R<sub>max</sub>/R<sub>0</sub> = 6.61822.</center>
+<br>
+That is very close to 3.0&mu;m, suggesting that 3.0&mu;m bubbles are indeed amongst the ones that cavitate most violently in experiments. That said, strange, very large radial expansions are observed for $$R_0\leq2.6$$. No idea why that happens---I must clear this with Carr before finalising my slideshow for ASA Boston.
