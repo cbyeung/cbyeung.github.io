@@ -5,7 +5,7 @@ date:   2017-06-01
 categories: acoustics ultrasound wave bubble cavitation nonlinear mathematica
 tags: acoustics ultrasound wave bubble cavitation nonlinear mathematica
 ---
-Luke Barbano, a fellow Swarthmore student who previously worked under the guidance of Professor Carr Everbach, laid the groundwork for the results of my post. His goal was to simulate the radial oscillation of a single bubble when subjected to a sinusoidal ultrasound field. Though his results did not quite match literature, which he was attempting to replicate, it was an essential part of modelling sonothrombolysis. The holy grail of any research, as Carr put it, is to reproduce the same results empirically, analytically, and numerically. If one achieves that, the problem is considered fully understood and *solved*; time to move on to the next enterprise, to uncharted waters. The enterprise I have been tasked with however, is much less ambitious: model ultrasound- and microbubble-assisted clot dissolution *numerically*.
+Luke Barbano, a fellow Swarthmore student who previously worked under the guidance of Professor Carr Everbach, laid the groundwork for the results of my post. His goal was to simulate the radial oscillation of a single bubble when subjected to a sinusoidal ultrasound field. Though his results did not quite match literature, it was an essential part of modelling sonothrombolysis. The holy grail of any research, as Carr put it, is to reproduce the same results empirically, analytically, and numerically. If one achieves that, the problem is considered fully understood and *solved*; time to move on to the next enterprise, to uncharted waters. The enterprise I have been tasked with however, is much less ambitious: model ultrasound- and microbubble-assisted clot dissolution *numerically*.
 
 Two sides of the same coin: modelling a blood clot numerically---relative to which my [E59 project]({{ site.baseurl }}{% link _posts/2017-05-20-simulating-deformation-of-fibrin-clot-with-ANSYS.md %}) is but a droplet in a haemal ocean; and modelling microbubbles numerically. Luke's work is the basis for the latter.
 
@@ -129,7 +129,7 @@ NMaximize[{Evaluate[R[t]/R0 /. sol[[1]]], 0 <= t <= 0.000005}, t]
 ~~~
 {% endraw %}
 
-The `Piecewise` function is used to 'switch-off' the sound pulse after 5&mu;s. Not sure why `[[1]]` is necessary, though it probably has to do with ensuring dimensions match---perhaps `sol` is not a scalar.
+The `Piecewise` function is used to 'switch-off' the sound pulse after 5&mu;s. Not sure why `[[1]]` in the last line is necessary, though it probably has to do with ensuring dimensions match---perhaps `sol` is not a scalar.
 
 Once I recorded $$R_{max}/R_0$$ for $$R_0$$ from 2.0 to 3.5&mu;m, I turned to `Python` (in hindsight `Mathematica` could gladly have done it) to find the resonance size.
 
