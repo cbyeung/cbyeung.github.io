@@ -15,7 +15,7 @@ $$\begin{equation*}
 R\ddot{R}+\frac{3\dot{R}^2}{2} = \frac{1}{\rho}\left\{ \left( p_0+\frac{2\sigma}{R_0}-p_v \right)\left( \frac{R_0}{R} \right)^{3\kappa}+p_v-\frac{2\sigma}{R}-\frac{4\eta\dot{R}}{R}-p_0-P(t) \right\}.
 \end{equation*}$$
 
-into a Mathematica script, shown below.
+into a Mathematica script, shown below. Note &eta; is the dynamic viscosity, usually written as &mu;. P(t) is the driving sound field.
 ~~~
 Clear[R, R0, \[Rho], P0, \[Sigma], Pv, \[Eta], P, \[Kappa]]
 (*initial radius 2mm*)
