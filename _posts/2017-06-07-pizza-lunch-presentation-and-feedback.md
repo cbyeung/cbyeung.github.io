@@ -7,7 +7,7 @@ tags: acoustics ultrasound wave bubble cavitation nonlinear mathematica
 ---
 I presented my cumulative research findings from my work over two-and-a-half summers and one semester (for the E59 Solid Mechanics course). You can access a copy of my presentation [here]({{ site.url }}/images/acoustics/presentationCBYsmall.pdf).
 
-Many members of the audience provided helpful feedback, which I have collected in this post.
+Many members of the audience provided helpful feedback, which I have collated in this post.
 
 Professor Matt Zucker
   - Questioned how fibres could possibly be less stiff axially than flexurally, given that in my 3D prints more fibres are oriented along the z-axis. Professor Carr Everbach responded that the geometry of the mesh is probably non-trivial because the connections between fibres might be capable of rotation. In other words, conformational changes should not be ignored.
@@ -21,4 +21,8 @@ Professor Carr Everbach
   - Mine was an 'A-' presentation, which is good given I had little preparation.
   - Too long though. Mine took about 30 minutes. I need to figure out how to squeeze the same amount of information into a circa 10 minute presentation.
   - Regarding making a 0.3x0.3x0.3mm cubic sample: since the bias towards the z-axis *could* be attributed to the microscope's scanning algorithms, one way to eliminate the scope as a cause of the observed anisotropy is to cut (with razor blades spaced 0.3mm apart) a 0.3x0.3mm square from a clot I prepare normally. There are special equipment that allows one to extract the cube, remove the fragment of coverslip, then reorient the cube on its side and place it on a new slide. This means I can image along the x- and y-axes (as defined by the orientation of the original sample slide) instead. Notwithstanding, this procedure is very difficult, though not impossible.
-  - Even though a microbubble only interacts with the fibre it touches.
+  - Even though a microbubble only interacts with the fibre it touches, rather than with the clot as a whole, it is still important to know if the overall clot is isotropic, even if knowing this does not help our efforts to model individual bubbles squeezing between individual fibres.
+
+Admonishments to myself
+  - On my computer, make sure Energy Saver settings are set such that the display will not go to sleep during my presentation
+  - Mute my mobile phone!
