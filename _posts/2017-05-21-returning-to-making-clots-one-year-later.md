@@ -104,7 +104,7 @@ On the other hand, a z-step size of 0.04&mu;m ought to be well below all but the
 </div>
 <center>Figure 11: High depth resolution model of clot made from 1.0un/mL thrombin. Brightness and contrast were unaltered in post-processing.</center>
 <br>
-The difference is immediately apparent, even though both models depict one and the same sample. The model in figure 11 is *much* more porous owing to its *much* thinner fibrils in the xy-plane. Furthermore, although the infamous flat surfaces are still visible in figure 11 in the xz- and yz-planes, they are smaller; the xz- and yz-planes now look similar to the xy-plane. This is very good news, considering it supports the idea that clots are homogeneous and isotropic.
+The difference is immediately apparent, even though both models depict one and the same sample. The model in figure 11 is *much* more porous owing to its *much* thinner fibrils in the xy-plane. Furthermore, although the infamous flat surfaces are still visible in figure 11 in the xz- and yz-planes, they are smaller; the xz- and yz-planes now look similar to the xy-plane. This is very good news, considering it supports the idea that clots are homogeneous and isotropic. These changes are due to the brightness and contrast settings though; I do not believe the higher resolution made any difference whatsoever.
 
 *Wednesday 14 Jun 2017 update: I finally completed a high resolution print of the `.stl` in figure 11 using the newly acquired 3D printer. The plastic matches figure 11 perfectly. That being said, at the end of the day, all of the 3D models I have made are too clumpy.*
 
