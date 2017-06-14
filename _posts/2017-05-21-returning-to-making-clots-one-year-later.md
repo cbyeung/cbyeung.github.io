@@ -106,6 +106,8 @@ On the other hand, a z-step size of 0.04&mu;m ought to be well below all but the
 <br>
 The difference is immediately apparent, even though both models depict one and the same sample. The model in figure 11 is *much* more porous owing to its *much* thinner fibrils in the xy-plane. Furthermore, although the infamous flat surfaces are still visible in figure 11 in the xz- and yz-planes, they are smaller; the xz- and yz-planes now look similar to the xy-plane. This is very good news, considering it supports the idea that clots are homogeneous and isotropic.
 
+*Wednesday 14 Jun 2017 update: I finally completed a high resolution print of the `.stl` in figure 11 using the newly acquired 3D printer. The plastic matches figure 11 perfectly. That being said, at the end of the day, all of the 3D models I have made are too clumpy.*
+
 ---
 <br>
 At this point, I think it would be wise to put clot-making on pause. Professor Carr Everbach has on multiple occasions reminded me that all of the clots I have ever made look somewhat distinct from the clots that the haematologists at UPenn made. My fibrin fibrils do not look nearly as ropy as they ought to. Another visit to the haematologists is in order.
