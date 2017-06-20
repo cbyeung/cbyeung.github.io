@@ -113,7 +113,7 @@ The difference is immediately apparent, even though both models depict one and t
 At this point, I think it would be wise to put clot-making on pause. Professor Carr Everbach has on multiple occasions reminded me that all of the clots I have ever made look somewhat distinct from the clots that the haematologists at UPenn made. My fibrin fibrils do not look nearly as ropy as they ought to. Another visit to the haematologists is in order.
 
 Here's a tentative list of questions I would ask:
-  1. Why do my clots look like spider webs rather than ropes? (Show Irina my images and 3D prints)
+  1. Why do my clots look like spider webs rather than ropes? (Show Irina my images, 3D prints and a dummy slide)
   2. Should clots be isotropic (*in vivo* and *in vitro*)? My fibrils look thicker along the z-axis
   3. How might I be able to test the effect that the geometry of the slide has on the clot? My small chambers so far have been unsuccessful; large chambers are hard to image
   4. Is dialysis of fibrinogen with NaCl-Tris buffer really necessary? How can the fibrinogen be protected from heat?
