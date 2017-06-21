@@ -117,5 +117,6 @@ Here's a tentative list of questions I would ask:
   2. Should clots be isotropic (*in vivo* and *in vitro*)? My fibrils look thicker along the z-axis
   3. How might I be able to test the effect that the geometry of the slide has on the clot? My small chambers so far have been unsuccessful; large chambers are hard to image
   4. Is dialysis of fibrinogen with NaCl-Tris buffer really necessary? How can the fibrinogen be protected from heat?
+  5. What is the physiological range of clot densities in the human body, i.e. are my samples representative of clinical conditions?
 
 Until then, *au revoir*!
