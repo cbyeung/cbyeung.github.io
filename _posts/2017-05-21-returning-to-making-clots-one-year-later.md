@@ -115,8 +115,7 @@ At this point, I think it would be wise to put clot-making on pause. Professor C
 Here's a tentative list of questions I would ask:
   1. Why do my clots look like spider webs rather than ropes? (Show Irina my images, 3D prints and a dummy slide)
   2. Should clots be isotropic (*in vivo* and *in vitro*)? My fibrils look thicker along the z-axis
-  3. How might I be able to test the effect that the geometry of the slide has on the clot? My small chambers so far have been unsuccessful; large chambers are hard to image
-  4. Is dialysis of fibrinogen with NaCl-Tris buffer really necessary? How can the fibrinogen be protected from heat?
-  5. What is the physiological range of clot densities in the human body, i.e. are my samples representative of clinical conditions?
+  3. (Why) Is dialysis of fibrinogen with NaCl-Tris buffer really necessary? How can the fibrinogen be protected from heat?
+  4. What is the physiological range of clot densities in the human body, i.e. are my sample images representative of clinical conditions?
 
 Until then, *au revoir*!
