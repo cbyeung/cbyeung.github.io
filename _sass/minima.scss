@@ -6,7 +6,7 @@
 // Define defaults for each variable.
 $title-font-family: "Lato", Helvetica, Arial, sans-serif;
 $base-font-family: "Lora", Garamond, serif !default;
-$base-font-size:   21px !default;
+$base-font-size:   18px !default;
 $base-font-weight: 300 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
@@ -14,7 +14,8 @@ $base-line-height: 1.5 !default;
 $spacing-unit:     30px !default;
 
 $text-color:       #111 !default;
-$background-color: #fdfdfd !default;
+$background-color: #f9f8f3 !default;
+// $background-color: #fdfdfd !default;
 $brand-color:      #2a7ae2 !default;
 
 $grey-color:       #828282 !default;
@@ -22,7 +23,7 @@ $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
 // Width of the content area
-$content-width:    722px !default;
+$content-width:    640px !default;
 
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
