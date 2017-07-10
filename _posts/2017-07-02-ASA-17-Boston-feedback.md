@@ -23,3 +23,11 @@ Take it away Paul.
 - Hybrid compromise: model flow-over-cylinder-created drag as a damping factor to my stick model or volumetric mesh in ANSYS, (otherwise ropes could go on oscillating forever even after the bubbles are gone,) add bubbles as oscillatory force (P(t) = Rayleigh-Plesset...). In essence this is building a maths model on top of my existing work---probably the most tractable route according to Paul, though starting from scratch in OpenFOAM is also possible.
 
 In short, as Paul said, there is a whole continuum of options, and no right answer.
+
+# List of tools to be vetted
+- COMSOL: possible
+- OpenFOAM: possible; need a lot of maths to write my own solver though; probably too difficult
+- Autodesk Inventor: probably not
+- ANSYS Fluent: possible
+- Solidworks flow simulation: probably not
+- QuickerSim MATLAB: almost definitely not
